@@ -16,10 +16,16 @@ public class CrapsGame
      */
     public int processRoll(int total)
     {
-
-        __________________________________________
-    ...
-
+        int result = 0;
+        if (point == 2 || point == 3 || point == 12) {
+            total = 0;
+            result = result - 1;
+        }
+        else if (point == 7 || point == 11) {
+            total = 0;
+            result = result + 1;
+        }
+        else if ()
         return result;
     }
 
