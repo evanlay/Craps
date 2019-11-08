@@ -25,7 +25,13 @@ public class CrapsGame
             total = 0;
             result = result + 1;
         }
-        else if ()
+        else {
+            total = point;
+            if (point == 7 || point == 11_) {
+                total = 0;
+                result = result - 1;
+            }
+        }
         return result;
     }
 
