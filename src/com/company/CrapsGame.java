@@ -17,26 +17,35 @@ public class CrapsGame
     public int processRoll(int total)
     {
         int result = 0;
+        int win = 1;
+        int lose = -1;
         if (point == 2 || point == 3 || point == 12) {
-            total = 0;
-            result = result - 1;
+            point = 0;
+            result = lose;
+            return result;
         }
         else if (point == 7 || point == 11) {
-            total = 0;
-            result = result + 1;
+            point = 0;
+            result = win;
+            return result;
         }
         else {
-            total = point;
+            point = total ;
             if (point == 7 || point == 11) {
-                total = 0;
-                result = result - 1;
+                point = 0;
+                result = lose;
+                return result;
             }
-            else if (point == total) {
-                total = 0;
-                result = result + 1;
+            else if (point < total || point > total) {
+                point = 0;
+                result = result;
+                return result;
+            }
+            else {
+                result = win;
+                return result;
             }
         }
-        return result;
     }
 
     /**
