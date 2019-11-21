@@ -2,51 +2,45 @@ package com.company;
 
 // Implements the game of Craps logic
 
-public class CrapsGame
-{
+public class CrapsGame {
     private int point = 0;
 
     /**
-     *  Calculates the result of the next dice roll in the Craps game.
-     *  The parameter total is the sum of dots on two dice.
-     *  point is set to the saved total, if the game continues,
-     *  or 0, if the game has ended.
-     *  Returns 1 if player won, -1 if player lost,
-     *  0 if player continues rolling.
+     * Calculates the result of the next dice roll in the Craps game.
+     * The parameter total is the sum of dots on two dice.
+     * point is set to the saved total, if the game continues,
+     * or 0, if the game has ended.
+     * Returns 1 if player won, -1 if player lost,
+     * 0 if player continues rolling.
      */
-    public int processRoll(int total)
-    {
+    public int processRoll(int total) {
         int result = 0;
         int win = 1;
         int lose = -1;
-        if (point == 2 || point == 3 || point == 12) {
+        if (total == 2 || total == 3 || total == 12) {
             point = 0;
             result = lose;
             return result;
         }
-        else if (point == 7 || point == 11) {
+        else if (total == 7 || total == 11) {
             point = 0;
             result = win;
             return result;
         }
-        else {
-            point = total ;
-            if (point == 7 || point == 11) {
-                point = 0;
-                result = lose;
-                return result;
+        else if (total == 4 || total == 5 || total == 6 || total == 8 || total == 9 || total == 10) {
+            point = total;
             }
-            else if (point < total || point > total) {
-                point = 0;
-                result = result;
-                return result;
-            }
-            else {
-                result = win;
-                return result;
-            }
+        if (total == 7 || total == 11) {
+            point = 0;
+            result = lose;
         }
+        else if (total == point) {
+            point = 0;
+            result = win;
+        }
+        return result;
     }
+
 
     /**
      *  Returns the saved point
