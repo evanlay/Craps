@@ -6,4 +6,10 @@ public class Die {
         die.roll();
         System.out.println(die.getNumDots());
     }
+    public int roll(int x) {
+        int y = 
+    }
+    public String getNumDots() {
+
+    }
 }
